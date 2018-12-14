@@ -39,6 +39,9 @@ gem 'devise'
 # Internationalization
 gem 'rails-i18n', '~> 5.1'
 
+# Spinner
+gem 'tty-spinner'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
