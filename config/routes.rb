@@ -2,14 +2,13 @@ Rails.application.routes.draw do
   namespace :site do
     get 'welcome/index'
   end
-  namespace :profiles_backoffice do
+  namespace :users_backoffice do
     get 'welcome/index'
   end
   namespace :admins_backoffice do
     get 'welcome/index'
   end
-  devise_for :profiles
   devise_for :admins
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
   root to: 'site/welcome#index'
 end
