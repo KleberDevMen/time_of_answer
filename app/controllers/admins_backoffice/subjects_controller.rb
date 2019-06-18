@@ -11,7 +11,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
 
   def update
     if @subject.update(params_subject)
-      redirect_to admins_backoffice_subjects_path, notice: 'Assunto atualizado com sucesso'
+      redirect_to admins_backoffice_subjects_path, notice: 'Assunto/Área atualizado com sucesso!'
     else
       render :edit
     end
@@ -24,7 +24,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   def create
     @subject = Subject.new(params_subject)
     if @subject.save
-      redirect_to admins_backoffice_subjects_path, notice: 'Assunto/Área cadastrado com sucesso'
+      redirect_to admins_backoffice_subjects_path, notice: 'Assunto/Área cadastrado com sucesso!'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
 
   def destroy
     if @subject.destroy
-      redirect_to admins_backoffice_subjects_path, notice: 'Assunto excluído'
+      redirect_to admins_backoffice_subjects_path, notice: 'Assunto/Área excluído com sucesso!'
     else
       render :index
     end
