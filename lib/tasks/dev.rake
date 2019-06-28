@@ -18,7 +18,9 @@ namespace :dev do
 
       show_sppiner("Cadastrando o Usuário padrão...") {%x{rails dev:add_default_user}}
 
-      show_sppiner("Cadastrando assuntos padrões...") {%x{rails dev:add_subjects}}
+      show_sppiner("Cadastrando Assuntos padrões...") {%x{rails dev:add_subjects}}
+
+      show_sppiner("Cadastrando perguntas e respostas...") {%x{rails dev:add_answers_and_questions}}
 
     else
       puts "Você não está em ambiente de desenvolvimento"
@@ -56,11 +58,23 @@ namespace :dev do
 
   desc 'Adiciona assuntos padrões'
   task add_subjects: :environment do
-    file_name = 'kleber.txt'
+    file_name = 'subjects.txt'
     file_path = File.join(Rails.root, 'lib', 'tmp', file_name)
 
     File.open(file_path, 'r').each do |line|
       Subject.create!(description: line.strip)
+    end
+  end
+
+  desc 'Adiciona perguntas e respostas'
+  task add_answers_and_questions: :environment do
+    Subject.all.each do |subject|
+      rand(3..5).times do |i|
+        Question.create!(
+            description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+            subject: subject
+        )
+      end
     end
   end
 
