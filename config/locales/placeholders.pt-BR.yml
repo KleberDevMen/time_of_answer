@@ -1,0 +1,5 @@
+'pt-BR':
+  placeholders:
+    email: Email do %{model}
+    password: Senha
+    confirm_password: Confirmação da senha
